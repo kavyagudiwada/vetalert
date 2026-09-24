@@ -124,6 +124,26 @@ cd backend
 # or: pytest -q                    # Unix/macOS
 ```
 
+### 5. Google Sign-In (optional)
+
+Create an OAuth 2.0 Client ID of type **Web** in
+[Google Cloud Console](https://console.cloud.google.com/apis/credentials),
+then:
+
+```bash
+cp frontend/.env.example frontend/.env   # set VITE_GOOGLE_CLIENT_ID
+cp backend/.env.example backend/.env     # set GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET
+```
+
+Leave the values empty to hide the Google button on the login page and disable
+the `/api/v1/auth/google` endpoint. Local database/weather values are otherwise
+unchanged.
+
+> **Security:** a previous demo Google OAuth client ID **and client secret** may
+> have been distributed. If you shared this project folder, **revoke the old
+> OAuth client** and create a fresh one (Console → Credentials → delete + create
+> new Web client ID). Never commit `.env` files — they are gitignored.
+
 ## API Overview
 
 | Method | Endpoint                     | Description                          |
